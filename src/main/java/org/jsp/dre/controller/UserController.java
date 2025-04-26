@@ -75,6 +75,13 @@ public ResponseEntity<?> updateUserById(@PathVariable int id,@RequestBody User u
 	}
 
 	
+	@GetMapping("/search/{name}")
+	public  ResponseEntity<?> search(@PathVariable String name){
+		
+		
+		return service.search(name);
+	}
+	
 
 	
 	
