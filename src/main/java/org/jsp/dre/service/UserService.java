@@ -13,6 +13,7 @@ import org.jsp.dre.entity.User;
 import org.jsp.dre.responsestructure.ResponseStructure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -213,6 +214,33 @@ public class UserService {
 		
 		
 		
+	}
+
+
+	public ResponseEntity<ResponseStructure<User>> search(String name) {
+		
+		
+		List<User> all = dao.findAll();
+		
+		
+		List<User> result = new ArrayList<>();
+		
+		
+		for (User u : all) {
+			
+			if(u.getName().indexOf(name) != -1)
+				result.add(u);
+			
+		}
+		
+		ResponseStructure rs = ResponseStructure
+										.builder()
+											.status(HttpStatus.OK.value())
+											.message("user found successfully")
+											.body(result)
+											.build();
+		ResponseEntity re = ResponseEntity.status(HttpStatus.OK).body(rs);
+		return  re;
 	}
 
 }
