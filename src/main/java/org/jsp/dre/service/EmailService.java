@@ -18,7 +18,7 @@ public class EmailService {
 	
 	public void sendEmail(User u) {
 		
-		
+		// it is like compose to mail
 		MimeMessage mm = jms.createMimeMessage();
 		
 		

@@ -23,6 +23,9 @@ public class UserService {
 	@Autowired
 	
 	private UserDao dao;
+	
+	@Autowired
+	private EmailService emailService;
 
 
 	public ResponseEntity<ResponseStructure<User>> saveUser(User user) {
@@ -30,6 +33,11 @@ public class UserService {
 		
 		
 	User savedUser =dao.saveUser(user);
+	
+	
+	emailService.sendEmail(savedUser);
+	
+	
 		
 	ResponseStructure rs = new ResponseStructure(HttpStatus.OK.value(),"user saved successfully" ,savedUser);
 	

@@ -15,16 +15,16 @@ public class EmailConfig {
 	JavaMailSender javaMailSender() {
 		
 		
-		//implementaton class emailsender
+		//implementaton class javaemailsender
 		
 		JavaMailSenderImpl jmsi = new JavaMailSenderImpl();
 		
 		
 		jmsi.setHost("smtp.gmail.com");
-		jmsi.setPort(587);
+		jmsi.setPort(587);									
 		jmsi.setUsername("pillariyaswanth@gmail.com");
 
-		jmsi.setPassword("namn zsul wpeb zqnd"); 
+		jmsi.setPassword("gbcc trhm grey dezy"); 
 				
 		Properties props = jmsi.getJavaMailProperties();
 		props.put("mail.transport.protocol", "smtp");
